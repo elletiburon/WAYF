@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create Profile</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Rubik" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+
+</head>
+
+<style>
+    body {
+        background-size: cover;
+        background-color: #F5B7B1;
+        opacity: 10%;
+        background-position: center;
+        background-repeat: no-repeat;
+        font-family: 'Rubik', sans-serif;
+        color: white;
+        height: 100%;
+    }
+
+    body::after {
+        content: "";
+        background: url();
+        opacity: 0.5;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
+
+        background-position: center;
+        background-repeat: no-repeat;
+
+    }
+
+    .container {
+        width: 75%;
+        margin: 0 auto;
+        margin-top: 2%;
+    }
+
+    h1 {
+        margin-top: 20px;
+        text-align: center;
+        font-family: 'Lobster', cursive;
+        text-shadow: 2px 2px #EC7063;
+        ;
+    }
+
+    a {
+        margin-top: 6px;
+        margin-left: 30px;
+        font-family: 'Lobster', cursive;
+        text-shadow: 2px 2px #EC7063;
+        ;
+    }
+
+    .btn-primary {
+        background-color: #F1948A !important;
+        border-color: #EC7063;
+        font-family: 'Lobster', cursive;
+    }
+
+    .profile-pic {
+        max-width: 200px;
+        max-height: 200px;
+        display: block;
+    }
+
+    .file-upload {
+        display: none;
+    }
+
+    .circle {
+        border-radius: 1000px !important;
+        overflow: hidden;
+        width: 200px;
+        height: 200px;
+        border: 8px solid rgba(255, 255, 255, 0.7);
+
+        top: 72px;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .p-image {
+        position: absolute;
+        top: 160px;
+        right: 30px;
+        color:#373283;
+        transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+    }
+
+    .p-image:hover {
+        transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+    }
+
+    .upload-button {
+        font-size: 2em;
+    }
+
+    .upload-button:hover {
+        transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+        color: rgb(245, 240, 240);
+    }
+</style>
+
+<body>
+   
+    <div class="container d-flex justify-content-center">
+            <h1>Create Your Profile!</h1>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="circle">
+                   
+                    <img class="profile-pic" src="assets/images/undraw_super_thank_you_obwk.svg">
+
+                </div>
+                <div class="p-image">
+                    <i class="fas fa-camera-retro upload-button"></i>
+                    <input class="file-upload" type="file" accept="image/*" />
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="email">Email Address<span class="kv-reqd">*</span></label>
+                        <input type="email" class="form-control" name="email" required>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="pwd">Password<span class="kv-reqd">*</span></label>
+                        <input type="password" class="form-control" name="pwd" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="fname">First Name</label>
+                        <input type="text" class="form-control" name="fname" required>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="lname">Last Name</label>
+                        <input type="text" class="form-control" name="lname" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">I'm
+                            a:</label>
+                        <select class="form-control">
+                            <option>Man interested in women</option>
+                            <option>Woman interested in men</option>
+                            <option>Man interested in men</option>
+                            <option>Woman interested in women</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">What day can you date?</label>
+                        <select class="form-control">
+                            <option>Sunday</option>
+                            <option>Monday</option>
+                            <option>Tuesday</option>
+                            <option>Wednesday</option>
+                            <option>Thursday</option>
+                            <option>Friday</option>
+                            <option>Saturday</option>
+                        </select>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="fname">What's Your Birthday?</label>
+                        <input type="date" class="form-control" name="birthdate" required>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div id="custom-select" class="">I'd Like My Partner To Be:</div>
+                        <select class="form-control">
+                            <option>18-27</option>
+                            <option>28-34</option>
+                            <option>35-44</option>
+                            <option>45-54</option>
+                            <option>55-64</option>
+                            <option>65+</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="about-me">Tell Us About Yourself!</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <hr>
+                <div class="text-right">
+                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+
+
+    <script>
+        //TODO figure out how to use this click to upload user image
+        // $(document).ready(function () {
+
+
+        //     var readURL = function (input) {
+        //         if (input.files && input.files[0]) {
+        //             var reader = new FileReader();
+
+        //             reader.onload = function (e) {
+        //                 $('.profile-pic').attr('src', e.target.result);
+        //             }
+
+        //             reader.readAsDataURL(input.files[0]);
+        //         }
+        //     }
+
+
+        //     $(".file-upload").on('change', function () {
+        //         readURL(this);
+        //     });
+
+        //     $(".upload-button").on('click', function () {
+        //         $(".file-upload").click();
+        //     });
+        // });
+
+    </script>
+
+
+
+</body>
+
+</html>
