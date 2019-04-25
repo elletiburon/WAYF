@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Rubik" rel="stylesheet">
 
-
     <title>jQueery</title>
 </head>
 
@@ -17,7 +16,6 @@
         body {
           background-size: cover;
           background-color: #F5B7B1;
-          opacity: 10%;
           background-position: center;
           background-repeat: no-repeat;
           font-family: 'Rubik', sans-serif;
@@ -27,7 +25,7 @@
       
         body::after {
           content: "";
-          background: url("assets/images/undraw_intense_feeling_ft9s.svg");
+          background: url("assets/images/undraw_forever_5ag7.svg");
           opacity: 0.5;
           top: 0;
           left: 0;
@@ -35,7 +33,7 @@
           right: 0;
           position: absolute;
           z-index: -1;
-          
+          background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
       
@@ -44,7 +42,7 @@
         .contianer {
           width: 30%;
           margin: 0 auto;
-          margin-top: 2%;
+          margin-top: 4%;
         }
         h1 {
           margin-top: 50px;
@@ -53,76 +51,28 @@
           text-shadow: 2px 2px #EC7063;;
         }
         a{
-          margin-top:6px;
           margin-left: 30px;
-          font-family: 'Lobster', cursive;
-          text-shadow: 2px 2px #EC7063;;
         }
 
-        .btn-primary {
+        .btn-success {
             background-color: #F1948A !important;
             border-color: #EC7063;
             font-family: 'Lobster', cursive;
         }
-
-        
       </style>
       
       <body>
-        <h1>When Are You Free?</h1>
+        <h1>Welcome Back</h1>
         <div class="contianer">
           <form>
-            <div class="row">
-              <div class="col-md-6 col-sm-12">
-                <input type="text" class="form-control" placeholder="First name">
-              </div>
-              <div class="col-md-6 col-sm-12">
-                <input type="text" class="form-control" placeholder="Last name">
-              </div>
-            </div>
-            <br>
-            <div class="form-group">
-              <label for="exampleFormControlInput1">I'm
-                a:</label>
-              <select class="form-control">
-                <option>Man interested in women</option>
-                <option>Woman interested in men</option>
-                <option>Man interested in men</option>
-                <option>Woman interested in women</option>
-              </select>
-            </div>
-      
-            <div class="form-group">
-              <label for="exampleFormControlInput1">What day can you date?</label>
-              <input type="date" class="form-control">
-      
-            </div>
-            <div class="form-group">
-              <div id="custom-select" class="">Select your age range</div>
-              <select class="form-control">
-                <option>18-27</option>
-                <option>28-34</option>
-                <option>35-44</option>
-                <option>45-54</option>
-                <option>55-64</option>
-                <option>65+</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlInput1">Zip / Postal code</label>
-              <input class="form-control" name="zip" type="number">
-            </div>
             <div class="form-group">
               <label for="exampleFormControlInput1">Email address</label>
               <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
               <label for="inputPassword4">Password</label>
               <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
             </div>
-            
-        <div class="row d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary btn-lg">Get Started</button>
-            <a style="color:white; font-size:20px;font-weight:bold;display:inline-block;" href="logIn.html">Already a member?</a>
-        </div>
+            <button type="submit" class="btn btn-success btn-lg">Log In</button>
+          
           </form>
         </div>
       
