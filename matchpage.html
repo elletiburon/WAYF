@@ -13,6 +13,14 @@
 </head>
 
 <style>
+ 
+    #map {
+        height: 300px;
+        width: 500px;
+
+    }
+
+
     body {
         background-size: cover;
         background-color: #F5B7B1;
@@ -80,12 +88,12 @@
 <body>
 
 
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-    <h1 style="text-align: center">You've Matched!</h1>
-    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 style="text-align: center">You've Matched!</h1>
             </div>
+        </div>
 
         <div class="row">
             <div class="col-lg-4">
@@ -112,8 +120,13 @@
                 </div>
             </div>
         </div>
+        <div id="map"></div>
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMrJ8Jc38iT-3kb62eF0lhsFvJ69dwaPY&libraries=places&callback=initialize"
+        async defer></script>
+    <script src="assets/javascript/match.js"></script>
 </body>
 
 </html>
