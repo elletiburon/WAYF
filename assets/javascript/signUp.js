@@ -47,7 +47,7 @@ $("#submit").on("click", function (event) {
         if (foundUsers) {
             userExist = true;
         }
-        console.log("LOGIN", userExist);
+        console.log("userfound", userExist);
 
         if (!userExist) {
             console.log("LOGIN ashjdgash", userExist);
@@ -73,7 +73,7 @@ $("#submit").on("click", function (event) {
                 console.log("Errors handled: " + errorObject.code);
             });
             //after signUp it will take you to user profile page
-            //window.location = "userprofile.html";
+            window.location = "userprofile.html";
         }
         else{
             
