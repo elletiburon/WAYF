@@ -79,6 +79,19 @@ $("#submit").on("click", function (event) {
             
         }
     });
+
+
+    // Clear sessionStorage
+    sessionStorage.clear();
+
+    // Store all content into sessionStorage
+    sessionStorage.setItem("firstName", firstName);
+    sessionStorage.setItem("birthday", birthday);
+    sessionStorage.setItem("zipcode", zipcode);
+    sessionStorage.setItem("dateDay", dateDay);
+    sessionStorage.setItem("about", about);
+  // By default display the content from sessionStorage
+
     
 
 
