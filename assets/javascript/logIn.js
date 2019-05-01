@@ -20,27 +20,34 @@ var attempt = 2; // Variable to count number of attempts.
                 var password = $("#password").val().trim();
                 var user = null;
                 database.ref().orderByChild("email").equalTo(email).once("value", function(snapshot){
+                    
+                    
                     console.log(snapshot.val());
                     var foundUsers = snapshot.val();
+                    
                     for (var key in foundUsers) {
                         console.log("found",foundUsers[key]);
+                        console.log(foundUsers[key].password);
                         if (foundUsers[key].password == password) {
                             user = foundUsers[key];
                             console.log("LOGIN!!!!!")   
                         }
+                        sessionStorage.setItem("firstName", foundUsers[key].firstName);
+                        sessionStorage.setItem("birthday", foundUsers[key].birthday);
+                        sessionStorage.setItem("zipcode", foundUsers[key].zipcode);
+                        sessionStorage.setItem("dateDay", foundUsers[key].dateDay);
+                        sessionStorage.setItem("about", foundUsers[key].about);
                     }
                     console.log("LOGIN", user)
                     if (user){
                         window.location = "userprofile.html";
                     }
-
-                })
-                
-                
-            });
             database.ref().on("value", function(snapshot) {
                 
                 // Log everything that’s coming out of snapshot
+
+                console.log("fire=========================================");
+                
                 console.log(snapshot.val());
                 console.log(snapshot.val().name);
                 console.log(snapshot.val().email);
@@ -55,14 +62,12 @@ var attempt = 2; // Variable to count number of attempts.
                 $("#bio").text(snapshot.val().about);
                 $("#location").text(snapshot.val().zipcode);
                 
-                sessionStorage.setItem("firstName", firstName);
-                sessionStorage.setItem("birthday", birthday);
-                sessionStorage.setItem("zipcode", zipcode);
-                sessionStorage.setItem("dateDay", comment);
-                sessionStorage.setItem("about", about);
                 
                 
-                    // Handle the errors
-                  }, function(errorObject) {
-                    console.log("Errors handled: " + errorObject.code);
-                  });
+                // Handle the errors
+            }, function(errorObject) {
+                console.log("Errors handled: " + errorObject.code);
+            });
+        })
+
+        });
