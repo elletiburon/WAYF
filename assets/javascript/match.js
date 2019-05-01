@@ -1,7 +1,20 @@
+var config = {
+  apiKey: "AIzaSyDR_r33Wa1FGkjlSph81ZV53WqTrdoHcqI",
+  authDomain: "project1-21d42.firebaseapp.com",
+  databaseURL: "https://project1-21d42.firebaseio.com",
+  projectId: "project1-21d42",
+  storageBucket: "project1-21d42.appspot.com",
+  messagingSenderId: "718469816684"
+};
+
+firebase.initializeApp(config);
+
+var database = firebase.database();
+
 var map;
 var service; 
 var infowindow;
-var zipcode = child.val().location;
+var zipcode = sessionStorage.getItem("zipcode");
 var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + zipcode + "&key=AIzaSyBMrJ8Jc38iT-3kb62eF0lhsFvJ69dwaPY";
 
 
@@ -21,7 +34,7 @@ function initialize() {
   } 
 
   function block(){
-      
+         
       $.ajax({
         url: queryURL,
         method: "GET"
