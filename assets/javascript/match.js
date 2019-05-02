@@ -107,3 +107,30 @@ function callback(results, status) {
   
   
 }
+var dateDay = sessionStorage.getItem("dateDay");
+    database.ref().orderByChild("dateDay").equalTo(dateDay).once("value", function(snapshot){
+        var foundMatch = snapshot.val();
+        console.log(foundMatch);
+        var firstName1 = $("<div>");
+        var age1 = $("<div>");
+        var bio1 = $("<div>");
+        firstName1.text("Name: " + sessionStorage.getItem("firstName"));
+        age1.text("Age: " + sessionStorage.getItem("birthday"));
+        bio1.text("About: " + sessionStorage.getItem("about"));
+        $("#info1").append(firstName1, age1, bio1);
+
+        for (var key in foundMatch) {
+          console.log("found",foundMatch[key]);
+          var firstName2 = $("<div>");
+          var age2 = $("<div>");
+          var bio2 = $("<div>");
+          firstName2.text("Name: " + foundMatch[key].firstName);
+          age2.text("Name: " + foundMatch[key].age);
+          bio2.text("Name: " + foundMatch[key].about);
+          $("#info2").append(firstName2);
+          
+      }
+        
+        
+
+    });
