@@ -14,7 +14,6 @@
 </head>
 
 <style>
- 
     #map {
         height: 300px;
         width: 500px;
@@ -84,6 +83,17 @@
         max-width: 100%;
         height: auto;
     }
+
+    .card-body {
+        background-color: #F1948A;
+        font-family: 'Rubik', sans-serif;
+        color: white;
+    }
+
+    .scroll {
+    max-height: 400px;
+    overflow-y: auto;
+}
 </style>
 
 <body>
@@ -100,35 +110,49 @@
     
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
-                <h1 style="text-align: center">You've Matched!</h1>
-            </div>
-        </div>
+            <div class="col-lg-6">
 
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="col-sm-12">
-                    <div class="circle">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="col-sm-12">
+                            <div class="circle">
 
-                        <img class="profile-pic" src="assets/images/undraw_super_thank_you_obwk.svg">
-
+                                <img class="profile-pic" src="assets/images/undraw_super_thank_you_obwk.svg">
+                            </div>
+                        </div>
                     </div>
                     <div id="info1"></div>
 
+                    <div class="col-lg-6">
+                        <div class="col-sm-12">
+                            <div class="circle">
+
+                                <img class="profile-pic" src="assets/images/undraw_Jogging_t14q.svg">
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-4">
 
-            </div>
-            <div class="col-lg-4">
-                <div class="col-sm-12">
-                    <div class="circle">
-
-                        <img class="profile-pic" src="assets/images/undraw_Jogging_t14q.svg">
-
+                <br>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div id="map"></div>
                     </div>
                     <div id="info2"></div>
+                    <div class="col-lg-6">
 
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card" style="height: auto;">
+                    <div class="card-body">
+                        <div class="scroll" id="messages"></div>
+                        <input id="message">
+                        <button id="send-message">SEND</button>
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -141,6 +165,10 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMrJ8Jc38iT-3kb62eF0lhsFvJ69dwaPY&libraries=places&callback=initialize"
         async defer></script>
     <script src="assets/javascript/match.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+   <script src="assets/javascript/chat.js"></script>
+
+
 </body>
 
 </html>
