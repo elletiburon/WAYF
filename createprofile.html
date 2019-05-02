@@ -119,6 +119,7 @@
         transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
         color: rgb(245, 240, 240);
     }
+    
 </style>
 
 <body>
@@ -129,12 +130,12 @@
             <div class="col-sm-12">
                 <div class="circle">
 
-                    <img class="profile-pic" src="assets/images/undraw_super_thank_you_obwk.svg">
+                    <img id="profileImage" class="profile-pic" src="assets/images/undraw_super_thank_you_obwk.svg">
 
                 </div>
                 <div class="p-image">
-                    <i class="fas fa-camera-retro upload-button"></i>
-                    <input class="file-upload" type="file" accept="image/*" />
+                    <i  class="fas fa-camera-retro upload-button"></i>
+                    <input id="imageUpload" class="file-upload" type="file" accept="image/*" />
                 </div>
             </div>
         </div>
@@ -230,8 +231,25 @@
         </div>
     </div>
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
 
     <script>
+
+$("#profileImage").click(function(e) {
+    $("#imageUpload").click();
+});
+
+function fasterPreview( uploader ) {
+    if ( uploader.files && uploader.files[0] ){
+          $('#profileImage').attr('src', 
+             window.URL.createObjectURL(uploader.files[0]) );
+    }
+}
+
+$("#imageUpload").change(function(){
+    fasterPreview( this );
+});
         //TODO figure out how to use this click to upload user image
         // $(document).ready(function () {
 
