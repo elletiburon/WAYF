@@ -20,32 +20,32 @@ $("#bio").text(sessionStorage.getItem("about"));
 
 $("#matches-btn").on("click", function (event) {
     event.preventDefault();
+  });
+  
+  var dateDay = sessionStorage.getItem("dateDay");
+  database.ref().orderByChild("dateDay").equalTo(dateDay).once("value", function(snapshot){
+    var foundMatch = snapshot.val();
+    console.log(foundMatch);
+    
+    for (var key in foundMatch) {
+      console.log("found",foundMatch[key]);
+      var firstName = $("<div>");
+      firstName.attr('id', foundMatch[key].email);
+      firstName.addClass("firstName");
+      var age = $("<div>");
+      var bio = $("<div>");
+      firstName.text("Name: " + foundMatch[key].firstName);
+      age.text("Age: " + foundMatch[key].birthday);
+      bio.text("About: " + foundMatch[key].about);
+      $("#matches").append(firstName, age, bio);
+    }
+    
+  });
+  $(document).on("click", ".firstName", function(event){
+    console.log("I've been clicked!", this);
+    var matchEmail = $(this).attr('id');
+    console.log(matchEmail);
+    sessionStorage.setItem("matchEmail", matchEmail);
     window.location = "matchpage.html"
-});
-
-var dateDay = sessionStorage.getItem("dateDay");
-    database.ref().orderByChild("dateDay").equalTo(dateDay).once("value", function(snapshot){
-        var foundMatch = snapshot.val();
-        console.log(foundMatch);
-
-        for (var key in foundMatch) {
-          console.log("found",foundMatch[key]);
-          var firstName = $("<div>");
-          firstName.attr('id', foundMatch[key].email);
-          firstName.addClass("firstName");
-          var age = $("<div>");
-          var bio = $("<div>");
-          firstName.text("Name: " + foundMatch[key].firstName);
-          age.text("Age: " + foundMatch[key].birthday);
-          bio.text("About: " + foundMatch[key].about);
-          $("#matches").append(firstName, age, bio);
-      }
-      
-    });
-    $(document).on("click", ".firstName", function(event){
-        console.log("I've been clicked!", this);
-        var matchEmail = $(this).attr('id');
-        console.log(matchEmail);
-        sessionStorage.setItem("matchEmail", matchEmail);
 
       });

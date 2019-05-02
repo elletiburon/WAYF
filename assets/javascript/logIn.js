@@ -33,6 +33,7 @@ var attempt = 2; // Variable to count number of attempts.
                             console.log("LOGIN!!!!!")   
                         }
                         sessionStorage.setItem("firstName", foundUsers[key].firstName);
+                        sessionStorage.setItem("email", foundUsers[key].email);
                         sessionStorage.setItem("birthday", foundUsers[key].birthday);
                         sessionStorage.setItem("zipcode", foundUsers[key].zipcode);
                         sessionStorage.setItem("dateDay", foundUsers[key].dateDay);
