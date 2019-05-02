@@ -28,16 +28,21 @@ $("#matches-btn").on("click", function (event) {
     console.log(foundMatch);
     
     for (var key in foundMatch) {
-      console.log("found",foundMatch[key]);
-      var firstName = $("<div>");
-      firstName.attr('id', foundMatch[key].email);
-      firstName.addClass("firstName");
-      var age = $("<div>");
-      var bio = $("<div>");
-      firstName.text("Name: " + foundMatch[key].firstName);
-      age.text("Age: " + foundMatch[key].birthday);
-      bio.text("About: " + foundMatch[key].about);
-      $("#matches").append(firstName, age, bio);
+        console.log(sessionStorage.getItem("email"));
+        if (foundMatch[key].email == sessionStorage.getItem("email")){
+            console.log("yourself");
+        }else {
+            console.log("found",foundMatch[key]);
+            var firstName = $("<div>");
+            firstName.attr('id', foundMatch[key].email);
+            firstName.addClass("firstName");
+            var age = $("<div>");
+            var bio = $("<div>");
+            firstName.text("Name: " + foundMatch[key].firstName);
+            age.text("Age: " + foundMatch[key].birthday);
+            bio.text("About: " + foundMatch[key].about);
+            $("#matches").append(firstName, age, bio);
+        }      
     }
     
   });
