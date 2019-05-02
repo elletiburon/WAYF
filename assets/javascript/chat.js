@@ -14,7 +14,7 @@ var database = firebase.database();
 var myEmail = sessionStorage.getItem("email")
 var user2Email = sessionStorage.getItem("matchEmail")
 
-var refPath = "chat-" + myEmail.replace(".", "_") + "-" + user2Email.replace(".", "_");
+var refPath = "chat-" + myEmail.replace(/\./g, "_") + "-" + user2Email.replace(/\./g, "_");
 
 database.ref(refPath).on("child_added", function (snapshot) {
     console.log(snapshot.val())
