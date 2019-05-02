@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Profile</title>
-
-
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Rubik|Rubik+Mono+One" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+
 </head>
 
 <body>
@@ -28,7 +27,7 @@
 
         body::after {
             content: "";
-          
+
             opacity: 0.5;
             top: 0;
             left: 0;
@@ -53,10 +52,10 @@
             text-align: center;
             font-family: 'Lobster', cursive;
             text-shadow: 2px 2px #EC7063;
-            
+
         }
 
-     
+
         .btn-primary {
             background-color: #F1948A !important;
             border-color: #EC7063;
@@ -70,9 +69,6 @@
             display: block;
         }
 
-        .file-upload {
-            display: none;
-        }
 
         .circle {
             border-radius: 1000px !important;
@@ -99,8 +95,9 @@
 
 
         .card-header {
-            background-color:  #F1948A;
+            background-color: #F1948A;
         }
+
         .card-body {
             background-color: #F5B7B1;
         }
@@ -110,7 +107,7 @@
         }
     </style>
 
-    <h1>Hello -NAME-</h1>
+    <h1 id="welcome"></h1>
     <div class="container d-flex justify-content-center">
         <div class="row">
             <div class="col-lg-6">
@@ -121,7 +118,7 @@
                             <img class="profile-pic" src="assets/images/undraw_super_thank_you_obwk.svg">
 
                         </div>
-                     
+
                     </div>
                 </div>
             </div>
@@ -131,17 +128,15 @@
                     <div class="card-body">
                         <h3 class="card-title" id="username"></h3>
                         <h5 class="card-title">Age</h5>
-                        <p class="card-text" id="Age">
+                        <span class="card-text" id="Age"></span>
+                        <h5 class="card-title">Location</h5>
+                        <p class="card-text" id="location"></p>"
+                        <h5 class="card-title">What Day Are You Free?</h5>
+                        <p class="card-text" id="day-available">
                             </h2>
-                            <h5 class="card-title">Location</h5>
-                            <p class="card-text" id="location">
+                            <h5 class="card-title">Bio</h5>
+                            <p class="card-text" id="bio">
                                 </h2>
-                                <h5 class="card-title">What Day Are You Free?</h5>
-                                <p class="card-text" id="day-available">
-                                    </h2>
-                                    <h5 class="card-title">Bio</h5>
-                                    <p class="card-text" id="bio">
-                                        </h2>
 
                     </div>
                 </div>
@@ -153,20 +148,20 @@
         <div class="row">
             <a href="createprofile.html" class="btn btn-primary btn-lg">Edit My Profile</button>
                 <a style="color:white; font-size:20px;font-weight:bold;display:inline-block;"></a>
-            <button type="button" id="new-match-btn" class="btn btn-primary btn-lg">Match Me!</button>
-            <button type="button" id="matches-btn" class="btn btn-primary btn-lg">My Matches</button>
+                <button  type="button" id="new-match-btn" class="btn btn-primary btn-lg">Match Me!</button>
+                <button type="button" id="matches-btn" class="btn btn-primary btn-lg">My Matches</button>
         </div>
     </div>
 
     <div class="container d-flex justify-content-center">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6 mx-auto">
                 <div class="card card-default">
                     <div class="card-header">
-                        New Matches
+                        Matches
                     </div>
-                    <div class="card-body" id="new-matches">
-                        
+                    <div class="card-body" id="matches">
+
                     </div>
                 </div>
             </div>
@@ -174,10 +169,10 @@
             <div class="col-lg-6">
                 <div class="card" style="width: 30rem;">
                     <div class="card-header">
-                      Saved Matches
+                        Saved Matches
                     </div>
                     <div class="card-body" id="saved-matches">
-                      
+
                     </div>
                 </div>
             </div>
@@ -185,12 +180,8 @@
         </div>
 
     </div>
-
-
-
-
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/javascript/profile.js"></script>
 
 </body>
 

@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+
+
 
 </head>
 
@@ -100,7 +103,7 @@
         position: absolute;
         top: 160px;
         right: 30px;
-        color:#373283;
+        color: #373283;
         transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
     }
 
@@ -116,22 +119,23 @@
         transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
         color: rgb(245, 240, 240);
     }
+    
 </style>
 
 <body>
-   
+
     <div class="container d-flex justify-content-center">
-            <h1>Create Your Profile!</h1>
+        <h1>Create Your Profile!</h1>
         <div class="row">
             <div class="col-sm-12">
                 <div class="circle">
-                   
-                    <img class="profile-pic" src="assets/images/undraw_super_thank_you_obwk.svg">
+
+                    <img id="profileImage" class="profile-pic" src="assets/images/undraw_super_thank_you_obwk.svg">
 
                 </div>
                 <div class="p-image">
-                    <i class="fas fa-camera-retro upload-button"></i>
-                    <input class="file-upload" type="file" accept="image/*" />
+                    <i  class="fas fa-camera-retro upload-button"></i>
+                    <input id="imageUpload" class="file-upload" type="file" accept="image/*" />
                 </div>
             </div>
         </div>
@@ -140,13 +144,13 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="email">Email Address<span class="kv-reqd">*</span></label>
-                        <input type="email" class="form-control" name="email" required>
+                        <input type="email" class="form-control" id="email-input" name="email" required>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="pwd">Password<span class="kv-reqd">*</span></label>
-                        <input type="password" class="form-control" name="pwd" required>
+                        <input type="password" class="form-control" id="password-input" name="pwd" required>
                     </div>
                 </div>
             </div>
@@ -154,13 +158,13 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="fname">First Name</label>
-                        <input type="text" class="form-control" name="fname" required>
+                        <input type="text" class="form-control" id="firstname-input" name="fname" required>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="lname">Last Name</label>
-                        <input type="text" class="form-control" name="lname" required>
+                        <input type="text" class="form-control" id="lastname-input" name="lname" required>
                     </div>
                 </div>
             </div>
@@ -170,7 +174,7 @@
                     <div class="form-group">
                         <label for="IamA">I'm
                             a:</label>
-                        <select class="form-control">
+                        <select class="form-control" id="intersested-input">
                             <option>Man interested in women</option>
                             <option>Woman interested in men</option>
                             <option>Man interested in men</option>
@@ -181,7 +185,7 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="dayofweek">What day can you date?</label>
-                        <select class="form-control">
+                        <select class="form-control" id="dateDay-input">
                             <option>Sunday</option>
                             <option>Monday</option>
                             <option>Tuesday</option>
@@ -198,15 +202,15 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="fname">What's Your Birthday?</label>
-                        <input type="date" class="form-control" name="birthdate" required>
+                        <label for="fname">Age</label>
+                        <input type="number" class="form-control" id="birthday-input" name="age" required>
                     </div>
                 </div>
                 <div class="col-sm-6">
-                        <div class="form-group">
-                                <label for="location">Where Are You?</label>
-                                <input type="text" class="form-control" name="location" required>
-                            </div>
+                    <div class="form-group">
+                        <label for="location">Where Are You?</label>
+                        <input type="text" class="form-control" id="location-input" name="location" required>
+                    </div>
                 </div>
             </div>
 
@@ -214,22 +218,38 @@
                 <div class="col-sm-12">
                     <div class="form-group">
                         <label for="about-me">Tell Us About Yourself!</label>
-                        <textarea class="form-control" id="aboutme" rows="3"></textarea>
+                        <textarea class="form-control" id="about-input" rows="3"></textarea>
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <hr>
                 <div class="text-right">
-                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                    <button type="submit" id="submit" class="btn btn-primary btn-lg">Submit</button>
                 </div>
             </div>
         </div>
-        </form>
     </div>
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
 
     <script>
+
+$("#profileImage").click(function(e) {
+    $("#imageUpload").click();
+});
+
+function fasterPreview( uploader ) {
+    if ( uploader.files && uploader.files[0] ){
+          $('#profileImage').attr('src', 
+             window.URL.createObjectURL(uploader.files[0]) );
+    }
+}
+
+$("#imageUpload").change(function(){
+    fasterPreview( this );
+});
         //TODO figure out how to use this click to upload user image
         // $(document).ready(function () {
 
@@ -255,8 +275,13 @@
         //         $(".file-upload").click();
         //     });
         // });
-
     </script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="assets/javascript/signUp.js"></script>
+
 
 
 

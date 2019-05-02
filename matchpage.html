@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>You've Matched!</title>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Rubik|Rubik+Mono+One" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+</head>
+
+<style>
+    #map {
+        height: 300px;
+        width: 500px;
+
+    }
+
+
+    body {
+        background-size: cover;
+        background-color: #F5B7B1;
+        opacity: 10%;
+        background-position: center;
+        background-repeat: no-repeat;
+        font-family: 'Rubik', sans-serif;
+        color: white;
+        height: 100%;
+    }
+
+    body::after {
+        content: "";
+
+        opacity: 0.5;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
+
+        background-position: center;
+        background-repeat: no-repeat;
+
+    }
+
+    .container {
+        width: 75%;
+        margin: 0 auto;
+        margin-top: 2%;
+    }
+
+    h1 {
+        margin-top: 20px;
+        text-align: center;
+        font-family: 'Lobster', cursive;
+        text-shadow: 2px 2px #EC7063;
+
+    }
+
+    .profile-pic {
+        max-width: 200px;
+        max-height: 200px;
+        display: block;
+    }
+
+
+    .circle {
+        border-radius: 1000px !important;
+        overflow: hidden;
+        width: 200px;
+        height: 200px;
+        border: 8px solid rgba(255, 255, 255, 0.7);
+
+        top: 72px;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .card-body {
+        background-color: #F1948A;
+        font-family: 'Rubik', sans-serif;
+        color: white;
+    }
+
+    .scroll {
+        max-height: 400px;
+        overflow-y: auto;
+    }
+
+
+</style>
+
+<body>
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="col-sm-12">
+                            <div class="circle">
+
+                                <img class="profile-pic" src="assets/images/undraw_super_thank_you_obwk.svg">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="text-center" id="info1"></div>
+                        
+                    </div>
+
+                    <div class="col-lg-6">
+                            <div class="col-sm-12">
+                                <div class="circle">
+    
+                                    <img class="profile-pic" src="assets/images/undraw_Jogging_t14q.svg">
+    
+                                </div>
+                            </div>
+                            <br>
+                            <div class="text-center" id="info2"></div>
+                        </div>
+              
+                   
+                </div>
+
+                <br>
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                            <div class="btn-group">
+                                    <button type="button" class="btn btn-outline-light">Google Map</button>
+                                    <button type="button" class="btn btn-outline-light dropdown-toggle dropdown-toggle" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <div id="map"></div>
+                                    </div>
+                                </div>
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card" style="height: auto;">
+                    <div class="card-body">
+                        <div class="scroll" id="messages"></div>
+                        <input id="message">
+                        <button id="send-message">SEND</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMrJ8Jc38iT-3kb62eF0lhsFvJ69dwaPY&libraries=places&callback=initialize"
+        async defer></script>
+    <script src="assets/javascript/match.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script src="assets/javascript/chat.js"></script>
+
+
+</body>
+
+</html>
