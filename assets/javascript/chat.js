@@ -11,22 +11,31 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
-var user1Email = "bob@bob.com"
-var user2Email = "steve@steve.com"
+var myEmail = sessionStorage.getItem("email")
+var user2Email = sessionStorage.getItem("matchEmail")
 
-var refPath = "chat-" + user1Email.replace(".", "_") + "-" + user2Email.replace(".", "_");
+var refPath = "chat-" + myEmail.replace(".", "_") + "-" + user2Email.replace(".", "_");
 
-database.ref(refPath).on("child_added", function(snapshot){
+database.ref(refPath).on("child_added", function (snapshot) {
     console.log(snapshot.val())
+    var chat = snapshot.val()
+    var chatHTML = $("<div>").text(chat.message).appendTo("#messages")
 
-    $("<div>").text(snapshot.val()).appendTo("#messages")
+    if (chat.email == myEmail) {
+        chatHTML.addClass("me")
+        
+    }
+    else {
+        chatHTML.addClass("notMe")
+    }
+
 
 })
- 
-$("#send-message").on("click", function(){
-   
+
+$("#send-message").on("click", function () {
+
     var message = $("#message").val()
-    database.ref(refPath).push(message)
+    database.ref(refPath).push({ email: myEmail, message: message })
 
     $("#message").val("")
 })
