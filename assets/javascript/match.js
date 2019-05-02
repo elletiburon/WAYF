@@ -119,17 +119,7 @@ var dateDay = sessionStorage.getItem("dateDay");
         bio1.text("About: " + sessionStorage.getItem("about"));
         $("#info1").append(firstName1, age1, bio1);
 
-        for (var key in foundMatch) {
-          console.log("found",foundMatch[key]);
-          var firstName2 = $("<div>");
-          var age2 = $("<div>");
-          var bio2 = $("<div>");
-          firstName2.text("Name: " + foundMatch[key].firstName);
-          age2.text("Name: " + foundMatch[key].age);
-          bio2.text("Name: " + foundMatch[key].about);
-          $("#info2").append(firstName2);
-          
-      }
+        //add session ref
         
         
 
