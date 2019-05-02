@@ -85,6 +85,7 @@ $("#submit").on("click", function (event) {
     sessionStorage.clear();
 
     // Store all content into sessionStorage
+    sessionStorage.setItem("email", email);
     sessionStorage.setItem("firstName", firstName);
     sessionStorage.setItem("birthday", birthday);
     sessionStorage.setItem("zipcode", zipcode);

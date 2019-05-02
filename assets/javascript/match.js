@@ -107,10 +107,9 @@ function callback(results, status) {
   
   
 }
-var dateDay = sessionStorage.getItem("dateDay");
-    database.ref().orderByChild("dateDay").equalTo(dateDay).once("value", function(snapshot){
-        var foundMatch = snapshot.val();
-        console.log(foundMatch);
+var email = sessionStorage.getItem("email");
+var match = sessionStorage.getItem("matchEmail");
+    database.ref().orderByChild("email").equalTo(email).once("value", function(snapshot){
         var firstName1 = $("<div>");
         var age1 = $("<div>");
         var bio1 = $("<div>");
@@ -120,6 +119,8 @@ var dateDay = sessionStorage.getItem("dateDay");
         $("#info1").append(firstName1, age1, bio1);
 
         //add session ref
+
+
         
         
 
