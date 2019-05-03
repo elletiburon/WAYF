@@ -93,7 +93,18 @@ $("#submit").on("click", function (event) {
     sessionStorage.setItem("about", about);
   // By default display the content from sessionStorage
 
-    
+    // Create a root reference
+// var database = firebase.storage().ref();
+
+// Create a reference to 'mountains.jpg'
+var mountainsRef = database.child('mountains.jpg');
+
+// Create a reference to 'images/mountains.jpg'
+var mountainImagesRef = database.child('images/mountains.jpg');
+
+// While the file names are the same, the references point to different files
+mountainsRef.name === mountainImagesRef.name            // true
+mountainsRef.fullPath === mountainImagesRef.fullPath    // false
 
 
 });

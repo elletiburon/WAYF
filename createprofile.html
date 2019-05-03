@@ -90,7 +90,6 @@
         width: 200px;
         height: 200px;
         border: 8px solid rgba(255, 255, 255, 0.7);
-
         top: 72px;
     }
 
@@ -119,35 +118,56 @@
         transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
         color: rgb(245, 240, 240);
     }
-    
+
+    #imageUpload {
+        display: none;
+    }
+
+    #profileImage {
+        cursor: pointer;
+    }
+
+    #profile-container {
+        overflow: hidden;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        border-radius: 50%;
+    }
+
+    #profile-container img {
+        width: 200px;
+        height: 200px;
+    }
 </style>
 
 <body>
 
     <div class="container d-flex justify-content-center">
-        <h1>Create Your Profile!</h1>
         <div class="row">
-            <div class="col-sm-12">
-                <div class="circle">
-
-                    <img id="profileImage" class="profile-pic" src="assets/images/undraw_super_thank_you_obwk.svg">
-
-                </div>
-                <div class="p-image">
-                    <i  class="fas fa-camera-retro upload-button"></i>
-                    <input id="imageUpload" class="file-upload" type="file" accept="image/*" />
+            <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                <h1>Create Your Profile!</h1>
+            </div>
+            <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                <div class="circle" id="profile-container">
+                    <img id="newImage" class="profile-pic" class="fas fa-camera-retro upload-button" src="assets/images/undraw_super_thank_you_obwk.svg">
+                    
+                    <div class="p-image" id="profileImage">
+                        <i class="fas fa-camera-retro upload-button" ></i>
+                        <input id="imageUpload" class="file-upload" type="file" accept="image/*" />
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-8">
+        <div class="col-sm-12 col-md-12 col-lg-6">
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-12 col-md-6 col-lg-6">
                     <div class="form-group">
                         <label for="email">Email Address<span class="kv-reqd">*</span></label>
                         <input type="email" class="form-control" id="email-input" name="email" required>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-12 col-md-6 col-lg-6">
                     <div class="form-group">
                         <label for="pwd">Password<span class="kv-reqd">*</span></label>
                         <input type="password" class="form-control" id="password-input" name="pwd" required>
@@ -155,13 +175,13 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-12 col-md-6 col-lg-6">
                     <div class="form-group">
                         <label for="fname">First Name</label>
                         <input type="text" class="form-control" id="firstname-input" name="fname" required>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-12 col-md-6 col-lg-6">
                     <div class="form-group">
                         <label for="lname">Last Name</label>
                         <input type="text" class="form-control" id="lastname-input" name="lname" required>
@@ -170,7 +190,7 @@
             </div>
 
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-12 col-md-6 col-lg-6">
                     <div class="form-group">
                         <label for="IamA">I'm
                             a:</label>
@@ -182,7 +202,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-12 col-md-6 col-lg-6">
                     <div class="form-group">
                         <label for="dayofweek">What day can you date?</label>
                         <select class="form-control" id="dateDay-input">
@@ -200,13 +220,13 @@
             </div>
 
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-12 col-md-6 col-lg-6">
                     <div class="form-group">
                         <label for="fname">Age</label>
                         <input type="number" class="form-control" id="birthday-input" name="age" required>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-12 col-md-6 col-lg-6">
                     <div class="form-group">
                         <label for="location">Where Are You?</label>
                         <input type="text" class="form-control" id="location-input" name="location" required>
@@ -231,25 +251,26 @@
         </div>
     </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 
     <script>
+        $("#profileImage").click(function () {
+            $("#imageUpload").click();
+        });
 
-$("#profileImage").click(function(e) {
-    $("#imageUpload").click();
-});
+        function fasterPreview(uploader) {
+            if (uploader.files && uploader.files[0]) {
+                $('#newImage').attr('src',
+                    window.URL.createObjectURL(uploader.files[0]));
+            }
+        }
 
-function fasterPreview( uploader ) {
-    if ( uploader.files && uploader.files[0] ){
-          $('#profileImage').attr('src', 
-             window.URL.createObjectURL(uploader.files[0]) );
-    }
-}
-
-$("#imageUpload").change(function(){
-    fasterPreview( this );
-});
+        $("#imageUpload").change(function () {
+            fasterPreview(this);
+        });
         //TODO figure out how to use this click to upload user image
         // $(document).ready(function () {
 
