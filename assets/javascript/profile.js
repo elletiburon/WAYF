@@ -11,7 +11,7 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
-$("#welcome").text(sessionStorage.getItem("firstName"));
+$("#welcome").text("Welcome " + sessionStorage.getItem("firstName") + "!");
 $("#Age").text(sessionStorage.getItem("birthday"));
 $("#location").text(sessionStorage.getItem("zipcode"));
 $("#day-available").text(sessionStorage.getItem("dateDay"));
