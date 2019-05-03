@@ -108,3 +108,4 @@ mountainsRef.fullPath === mountainImagesRef.fullPath    // false
 
 
 });
+
