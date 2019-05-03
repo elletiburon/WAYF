@@ -165,12 +165,16 @@
                     <div class="form-group">
                         <label for="email">Email Address<span class="kv-reqd">*</span></label>
                         <input type="email" class="form-control" id="email-input" name="email" required>
+                        <div class="alert-danger text-center" id="needEmail">Please enter a valid Email!</div>
+                        <div class="alert-danger text-center" id="emailExists">This Email Already Exists!</div>
                     </div>
+                    
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6">
                     <div class="form-group">
                         <label for="pwd">Password<span class="kv-reqd">*</span></label>
                         <input type="password" class="form-control" id="password-input" name="pwd" required>
+                        <div class="alert-danger text-center" id="needPassword">Please enter a password!</div>
                     </div>
                 </div>
             </div>
@@ -179,12 +183,14 @@
                     <div class="form-group">
                         <label for="fname">First Name</label>
                         <input type="text" class="form-control" id="firstname-input" name="fname" required>
+                        <div class="alert-danger text-center" id="needFirstName">Please enter your first name!</div>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6">
                     <div class="form-group">
                         <label for="lname">Last Name</label>
                         <input type="text" class="form-control" id="lastname-input" name="lname" required>
+                        <div class="alert-danger text-center" id="needLastName">Please enter your last name!</div>
                     </div>
                 </div>
             </div>
@@ -228,8 +234,9 @@
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6">
                     <div class="form-group">
-                        <label for="location">Where Are You?</label>
+                        <label for="location">What is your zipcode?</label>
                         <input type="text" class="form-control" id="location-input" name="location" required>
+                        <div class="alert-danger text-center" id="needZipcode">Please enter a valid zipcode!</div>
                     </div>
                 </div>
             </div>
