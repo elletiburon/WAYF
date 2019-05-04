@@ -39,15 +39,19 @@ $("#logIn").on("click", function (event) {
                 sessionStorage.setItem("zipcode", foundUsers[key].zipcode);
                 sessionStorage.setItem("dateDay", foundUsers[key].dateDay);
                 sessionStorage.setItem("about", foundUsers[key].about);
-            } else {
+            }
+            else {
                 console.log("Incorrect Password");
                 $("#wrongLogin").show();
             }
 
         }
+
         console.log("LOGIN", user)
         if (user) {
             window.location = "userprofile.html";
+        } else {
+            $("#wrongLogin").show();
         }
         database.ref().on("value", function (snapshot) {
 
