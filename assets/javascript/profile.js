@@ -18,11 +18,9 @@ $("#day-available").text(sessionStorage.getItem("dateDay"));
 $("#bio").text(sessionStorage.getItem("about"));
 
 
-$("#matches-btn").on("click", function (event) {
+$("#new-match-btn").on("click", function (event) {
     event.preventDefault();
-  });
-  
-  var dateDay = sessionStorage.getItem("dateDay");
+    var dateDay = sessionStorage.getItem("dateDay");
   database.ref().orderByChild("dateDay").equalTo(dateDay).once("value", function(snapshot){
     var foundMatch = snapshot.val();
     console.log(foundMatch);
@@ -46,6 +44,9 @@ $("#matches-btn").on("click", function (event) {
     }
     
   });
+  });
+  
+  
   $(document).on("click", ".firstName", function(event){
     console.log("I've been clicked!", this);
     var matchEmail = $(this).attr('id');
