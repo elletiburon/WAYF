@@ -105,6 +105,14 @@
         h5 {
             font-family: 'Rubik Mono One', sans-serif;
         }
+
+        .thead {
+            background-color: #F1948A !important;
+        }
+        .firstName {
+            color: #EC7063;
+            font-size: 120%;
+        }
     </style>
 
     <h1 id="welcome"></h1>
@@ -130,7 +138,7 @@
                         <h5 class="card-title">Age</h5>
                         <span class="card-text" id="Age"></span>
                         <h5 class="card-title">Location</h5>
-                        <p class="card-text" id="location"></p>"
+                        <p class="card-text" id="location"></p>
                         <h5 class="card-title">What Day Are You Free?</h5>
                         <p class="card-text" id="day-available">
                             </h2>
@@ -161,7 +169,20 @@
                         Matches
                     </div>
                     <div class="card-body" id="matches">
-
+                            <table class="table">
+                                    <thead class="thead">
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                            <th scope="col">Age</th>
+                                            <th scope="col">About</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                </tbody>
+                                
+                        
+                            </table>
                     </div>
                 </div>
             </div>

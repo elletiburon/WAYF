@@ -31,15 +31,19 @@ $("#new-match-btn").on("click", function (event) {
             console.log("yourself");
         }else {
             console.log("found",foundMatch[key]);
-            var firstName = $("<div>");
+            var tbody = $('tbody');
+            var tRow = $("<tr>");
+            var firstName = $("<td>");
             firstName.attr('id', foundMatch[key].email);
             firstName.addClass("firstName");
-            var age = $("<div>");
-            var bio = $("<div>");
-            firstName.text("Name: " + foundMatch[key].firstName);
-            age.text("Age: " + foundMatch[key].birthday);
-            bio.text("About: " + foundMatch[key].about);
-            $("#matches").append(firstName, age, bio);
+            firstName.text(foundMatch[key].firstName);
+            var age = $("<td>");
+            var bio = $("<td>");
+          
+            age.text(foundMatch[key].birthday);
+            bio.text(foundMatch[key].about);
+            tRow.append(firstName, age, bio);
+            tbody.append(tRow)
         }      
     }
     
