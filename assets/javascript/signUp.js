@@ -1,3 +1,10 @@
+$("#needEmail").hide();
+$("#emailExists").hide();
+$("#needPassword").hide();
+$("#needFirstName").hide();
+$("#needLastName").hide();
+$("#needZipcode").hide();
+
 var config = {
     apiKey: "AIzaSyDR_r33Wa1FGkjlSph81ZV53WqTrdoHcqI",
     authDomain: "project1-21d42.firebaseapp.com",
@@ -26,6 +33,12 @@ var about = "";
 
 $("#submit").on("click", function (event) {
     event.preventDefault();
+    $("#needEmail").hide();
+    $("#emailExists").hide();
+    $("#needPassword").hide();
+    $("#needFirstName").hide();
+    $("#needLastName").hide();
+    $("#needZipcode").hide();
 
     // YOUR TASK!!!
     // Code in the logic for storing and retrieving the most recent user.
@@ -46,12 +59,27 @@ $("#submit").on("click", function (event) {
         var foundUsers = snapshot.val();
         if (foundUsers) {
             userExist = true;
+            $("#emailExists").show();
+        } 
+        if (email == "") {
+            $("#needEmail").show();
         }
-        console.log("userfound", userExist);
+        if (password == "") {
+            $("#needPassword").show();
+        }
+        if (firstName == "") {
+            $("#needFirstName").show();
+        } 
+        if (lastName == "") {
+            $("#needLastName").show();
+        }
+        if (zipcode == 0 || zipcode.toString().length < 5) {
+            $("#needZipcode").show();
+        }
 
-        if (!userExist) {
+        if (!userExist && password && firstName && lastName && zipcode) {
             console.log("LOGIN ashjdgash", userExist);
-    
+
             // Code for the push
             database.ref().push({
                 email,
@@ -63,11 +91,11 @@ $("#submit").on("click", function (event) {
                 birthday,
                 zipcode,
                 about
-    
-    
-    
+
+
+
                 // Log everything that's coming out of snapshot
-    
+
                 // full list of items to the well
             }, function (errorObject) {
                 console.log("Errors handled: " + errorObject.code);
@@ -75,8 +103,8 @@ $("#submit").on("click", function (event) {
             //after signUp it will take you to user profile page
             window.location = "userprofile.html";
         }
-        else{
-            
+        else {
+
         }
     });
 
@@ -91,9 +119,6 @@ $("#submit").on("click", function (event) {
     sessionStorage.setItem("zipcode", zipcode);
     sessionStorage.setItem("dateDay", dateDay);
     sessionStorage.setItem("about", about);
-  // By default display the content from sessionStorage
-
-    
-
+    // By default display the content from sessionStorage
 
 });

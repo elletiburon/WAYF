@@ -27,7 +27,7 @@
 
         body::after {
             content: "";
-
+            background: url("assets/images/undraw_romantic_getaway_k2mf.svg");
             opacity: 0.5;
             top: 0;
             left: 0;
@@ -35,8 +35,7 @@
             right: 0;
             position: absolute;
             z-index: -1;
-
-            background-position: center;
+            background-position: left;
             background-repeat: no-repeat;
 
         }
@@ -54,8 +53,7 @@
             text-shadow: 2px 2px #EC7063;
 
         }
-
-
+       
         .btn-primary {
             background-color: #F1948A !important;
             border-color: #EC7063;
@@ -76,8 +74,10 @@
             width: 200px;
             height: 200px;
             border: 8px solid rgba(255, 255, 255, 0.7);
-
             top: 72px;
+           
+            margin-top: 60px;
+            margin-bottom: 30px;
         }
 
         img {
@@ -105,9 +105,19 @@
         h5 {
             font-family: 'Rubik Mono One', sans-serif;
         }
+
+        .thead {
+            background-color: #F1948A !important;
+        }
+        .firstName {
+            color: #EC7063;
+            font-size: 120%;
+            cursor: pointer;
+            font-family: 'Rubik Mono One', sans-serif;
+        }
     </style>
 
-    <h1 id="welcome"></h1>
+    
     <div class="container d-flex justify-content-center">
         <div class="row">
             <div class="col-lg-6">
@@ -124,19 +134,18 @@
             </div>
 
             <div class="col-lg-6">
-                <div class="card text-left" style="width: 30rem;">
-                    <div class="card-body">
-                        <h3 class="card-title" id="username"></h3>
+
+    <h1 id="welcome"></h1>
+                <div class="text-left" style="width: 30rem;">
+                    <div class="card-body" id="profile-info">
                         <h5 class="card-title">Age</h5>
-                        <span class="card-text" id="Age"></span>
+                        <p class="card-text"id="Age"></p>
                         <h5 class="card-title">Location</h5>
-                        <p class="card-text" id="location"></p>"
+                        <p class="card-text" id="location"></p>
                         <h5 class="card-title">What Day Are You Free?</h5>
                         <p class="card-text" id="day-available">
-                            </h2>
-                            <h5 class="card-title">Bio</h5>
-                            <p class="card-text" id="bio">
-                                </h2>
+                        <h5 class="card-title">Bio</h5>
+                        <p class="card-text" id="bio">        
 
                     </div>
                 </div>
@@ -146,33 +155,35 @@
 
     <div class="container d-flex justify-content-center">
         <div class="row">
-            <a href="createprofile.html" class="btn btn-primary btn-lg">Edit My Profile</button>
+           
                 <a style="color:white; font-size:20px;font-weight:bold;display:inline-block;"></a>
                 <button  type="button" id="new-match-btn" class="btn btn-primary btn-lg">Match Me!</button>
-                <button type="button" id="matches-btn" class="btn btn-primary btn-lg">My Matches</button>
+                
         </div>
     </div>
 
     <div class="container d-flex justify-content-center">
         <div class="row">
-            <div class="col-lg-6 mx-auto">
+            <div class="col-lg-12 mx-auto">
                 <div class="card card-default">
                     <div class="card-header">
                         Matches
                     </div>
                     <div class="card-body" id="matches">
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="card" style="width: 30rem;">
-                    <div class="card-header">
-                        Saved Matches
-                    </div>
-                    <div class="card-body" id="saved-matches">
-
+                            <table class="table">
+                                    <thead class="thead">
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                            <th scope="col">Age</th>
+                                            <th scope="col">About</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                </tbody>
+                                
+                        
+                            </table>
                     </div>
                 </div>
             </div>

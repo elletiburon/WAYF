@@ -11,18 +11,16 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
-$("#welcome").text(sessionStorage.getItem("firstName"));
+$("#welcome").text("Welcome " + sessionStorage.getItem("firstName") + "!");
 $("#Age").text(sessionStorage.getItem("birthday"));
 $("#location").text(sessionStorage.getItem("zipcode"));
 $("#day-available").text(sessionStorage.getItem("dateDay"));
 $("#bio").text(sessionStorage.getItem("about"));
 
 
-$("#matches-btn").on("click", function (event) {
+$("#new-match-btn").on("click", function (event) {
     event.preventDefault();
-  });
-  
-  var dateDay = sessionStorage.getItem("dateDay");
+    var dateDay = sessionStorage.getItem("dateDay");
   database.ref().orderByChild("dateDay").equalTo(dateDay).once("value", function(snapshot){
     var foundMatch = snapshot.val();
     console.log(foundMatch);
@@ -33,19 +31,26 @@ $("#matches-btn").on("click", function (event) {
             console.log("yourself");
         }else {
             console.log("found",foundMatch[key]);
-            var firstName = $("<div>");
+            var tbody = $('tbody');
+            var tRow = $("<tr>");
+            var firstName = $("<td>");
             firstName.attr('id', foundMatch[key].email);
             firstName.addClass("firstName");
-            var age = $("<div>");
-            var bio = $("<div>");
-            firstName.text("Name: " + foundMatch[key].firstName);
-            age.text("Age: " + foundMatch[key].birthday);
-            bio.text("About: " + foundMatch[key].about);
-            $("#matches").append(firstName, age, bio);
+            firstName.text(foundMatch[key].firstName);
+            var age = $("<td>");
+            var bio = $("<td>");
+          
+            age.text(foundMatch[key].birthday);
+            bio.text(foundMatch[key].about);
+            tRow.append(firstName, age, bio);
+            tbody.append(tRow)
         }      
     }
     
   });
+  });
+  
+  
   $(document).on("click", ".firstName", function(event){
     console.log("I've been clicked!", this);
     var matchEmail = $(this).attr('id');

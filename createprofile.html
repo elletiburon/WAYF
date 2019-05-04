@@ -11,8 +11,8 @@
     <link href="https://fonts.googleapis.com/css?family=Lobster|Rubik" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+
 
 
 
@@ -32,7 +32,7 @@
 
     body::after {
         content: "";
-        background: url();
+        background: url("assets/images/undraw_messaging_uok8.svg");
         opacity: 0.5;
         top: 0;
         left: 0;
@@ -40,8 +40,9 @@
         right: 0;
         position: absolute;
         z-index: -1;
-
-        background-position: center;
+        margin-top: 200px;
+        background-size: contain;
+        background-position: left;
         background-repeat: no-repeat;
 
     }
@@ -90,7 +91,6 @@
         width: 200px;
         height: 200px;
         border: 8px solid rgba(255, 255, 255, 0.7);
-
         top: 72px;
     }
 
@@ -119,172 +119,192 @@
         transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
         color: rgb(245, 240, 240);
     }
-    
+
+    #imageUpload {
+        display: none;
+    }
+
+    #profileImage {
+        cursor: pointer;
+    }
+
+    #profile-container {
+        overflow: hidden;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        border-radius: 50%;
+    }
+
+    #profile-container img {
+        width: 200px;
+        height: 200px;
+    }
+
+    @media screen and (max-width: 320px) {
+        .container {
+            background: red;
+            width: 100%;
+        }
+    }
 </style>
 
 <body>
 
     <div class="container d-flex justify-content-center">
-        <h1>Create Your Profile!</h1>
         <div class="row">
-            <div class="col-sm-12">
-                <div class="circle">
+            <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                <h1>Create Your Profile!</h1>
+            </div>
+            <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                <div class="circle" id="profile-container">
+                    <img id="newImage" class="profile-pic" class="fas fa-camera-retro upload-button"
+                        src="assets/images/undraw_super_thank_you_obwk.svg">
 
-                    <img id="profileImage" class="profile-pic" src="assets/images/undraw_super_thank_you_obwk.svg">
-
+                    <div class="p-image" id="profileImage">
+                        <i class="fas fa-camera-retro upload-button"></i>
+                        <input id="imageUpload" class="file-upload" type="file" accept="image/*" />
+                    </div>
                 </div>
-                <div class="p-image">
-                    <i  class="fas fa-camera-retro upload-button"></i>
-                    <input id="imageUpload" class="file-upload" type="file" accept="image/*" />
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-6">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="email">Email Address<span class="kv-reqd">*</span></label>
+                            <input type="email" class="form-control" id="email-input" name="email" required>
+                            <div class="alert-danger text-center" id="needEmail">Please enter a valid Email!</div>
+                            <div class="alert-danger text-center" id="emailExists">This Email Already Exists!</div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="pwd">Password<span class="kv-reqd">*</span></label>
+                            <input type="password" class="form-control" id="password-input" name="pwd" required>
+                            <div class="alert-danger text-center" id="needPassword">Please enter a password!</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="fname">First Name</label>
+                            <input type="text" class="form-control" id="firstname-input" name="fname" required>
+                            <div class="alert-danger text-center" id="needFirstName">Please enter your first name!</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="lname">Last Name</label>
+                            <input type="text" class="form-control" id="lastname-input" name="lname" required>
+                            <div class="alert-danger text-center" id="needLastName">Please enter your last name!</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="IamA">I'm
+                                a:</label>
+                            <select class="form-control" id="intersested-input">
+                                <option>Man interested in women</option>
+                                <option>Woman interested in men</option>
+                                <option>Man interested in men</option>
+                                <option>Woman interested in women</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="dayofweek">What day can you date?</label>
+                            <select class="form-control" id="dateDay-input">
+                                <option>Sunday</option>
+                                <option>Monday</option>
+                                <option>Tuesday</option>
+                                <option>Wednesday</option>
+                                <option>Thursday</option>
+                                <option>Friday</option>
+                                <option>Saturday</option>
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="fname">Age</label>
+                            <input type="number" class="form-control" id="birthday-input" name="age" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="location">What is your zipcode?</label>
+                            <input type="text" class="form-control" id="location-input" name="location" required>
+                            <div class="alert-danger text-center" id="needZipcode">Please enter a valid zipcode!</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="about-me">Tell Us About Yourself!</label>
+                            <textarea class="form-control" id="about-input" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <hr>
+                    <div class="text-right">
+                        <button type="submit" id="submit" class="btn btn-primary btn-lg">Submit</button>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-sm-8">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="email">Email Address<span class="kv-reqd">*</span></label>
-                        <input type="email" class="form-control" id="email-input" name="email" required>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="pwd">Password<span class="kv-reqd">*</span></label>
-                        <input type="password" class="form-control" id="password-input" name="pwd" required>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="fname">First Name</label>
-                        <input type="text" class="form-control" id="firstname-input" name="fname" required>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="lname">Last Name</label>
-                        <input type="text" class="form-control" id="lastname-input" name="lname" required>
-                    </div>
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="IamA">I'm
-                            a:</label>
-                        <select class="form-control" id="intersested-input">
-                            <option>Man interested in women</option>
-                            <option>Woman interested in men</option>
-                            <option>Man interested in men</option>
-                            <option>Woman interested in women</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="dayofweek">What day can you date?</label>
-                        <select class="form-control" id="dateDay-input">
-                            <option>Sunday</option>
-                            <option>Monday</option>
-                            <option>Tuesday</option>
-                            <option>Wednesday</option>
-                            <option>Thursday</option>
-                            <option>Friday</option>
-                            <option>Saturday</option>
-                        </select>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="fname">Age</label>
-                        <input type="number" class="form-control" id="birthday-input" name="age" required>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="location">Where Are You?</label>
-                        <input type="text" class="form-control" id="location-input" name="location" required>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="form-group">
-                        <label for="about-me">Tell Us About Yourself!</label>
-                        <textarea class="form-control" id="about-input" rows="3"></textarea>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <hr>
-                <div class="text-right">
-                    <button type="submit" id="submit" class="btn btn-primary btn-lg">Submit</button>
-                </div>
-            </div>
-        </div>
     </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    
-
-    <script>
-
-$("#profileImage").click(function(e) {
-    $("#imageUpload").click();
-});
-
-function fasterPreview( uploader ) {
-    if ( uploader.files && uploader.files[0] ){
-          $('#profileImage').attr('src', 
-             window.URL.createObjectURL(uploader.files[0]) );
-    }
-}
-
-$("#imageUpload").change(function(){
-    fasterPreview( this );
-});
-        //TODO figure out how to use this click to upload user image
-        // $(document).ready(function () {
-
-
-        //     var readURL = function (input) {
-        //         if (input.files && input.files[0]) {
-        //             var reader = new FileReader();
-
-        //             reader.onload = function (e) {
-        //                 $('.profile-pic').attr('src', e.target.result);
-        //             }
-
-        //             reader.readAsDataURL(input.files[0]);
-        //         }
-        //     }
-
-
-        //     $(".file-upload").on('change', function () {
-        //         readURL(this);
-        //     });
-
-        //     $(".upload-button").on('click', function () {
-        //         $(".file-upload").click();
-        //     });
-        // });
-    </script>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+    <script>
+        var config = {
+            apiKey: "AIzaSyDR_r33Wa1FGkjlSph81ZV53WqTrdoHcqI",
+            authDomain: "project1-21d42.firebaseapp.com",
+            databaseURL: "https://project1-21d42.firebaseio.com",
+            projectId: "project1-21d42",
+            storageBucket: "project1-21d42.appspot.com",
+            messagingSenderId: "718469816684"
+        };
+        firebase.initializeApp(config);
+
+        $("#profileImage").click(function () {
+            $("#imageUpload").click();
+        });
+
+        function fasterPreview(uploader) {
+            if (uploader.files && uploader.files[0]) {
+                $('#newImage').attr('src',
+                    window.URL.createObjectURL(uploader.files[0]));
+            }
+        }
+        $("#imageUpload").change(function (e) {
+            fasterPreview(this);
+            var file = e.target.files[0];
+            var storageRef = firebase.storage().ref("project1_image/" + file.name)
+            storageRef.put(file);
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+
     <script src="assets/javascript/signUp.js"></script>
-
-
-
-
 </body>
 
 </html>
