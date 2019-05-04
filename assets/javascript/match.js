@@ -133,3 +133,7 @@ database.ref().orderByChild("email").equalTo(match).once("value", function (snap
   }
 
 });
+
+$("#googleMapsDrop").on("click", function(event){
+  event.stopPropagation();
+});
